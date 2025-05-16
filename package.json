@@ -2,7 +2,7 @@
   "name": "star-house",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://mohdimran4449.github.io/Star-house",
+  "homepage": ".",
   "dependencies": {
     "autoprefixer": "^10.4.14",
     "framer-motion": "^12.11.3",
@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build -t true"
   },
   "eslintConfig": {
     "extends": [
