@@ -25,19 +25,47 @@ const LeatherBelts = () => {
     autoplay: true,
     autoplaySpeed: 3000,
     cssEase: "cubic-bezier(0.87, 0.03, 0.41, 0.9)",
+    adaptiveHeight: true,
+    lazyLoad: 'ondemand',
     responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-          dots: true
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
         }
       },
       {
         breakpoint: 640,
         settings: {
           slidesToShow: 1,
-          dots: true
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: '10%'
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          centerMode: true,
+          centerPadding: '5%'
         }
       }
     ]

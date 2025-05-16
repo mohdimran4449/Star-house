@@ -3,13 +3,33 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+/* Responsive Viewport Fix */
+@viewport {
+  width: device-width;
+  zoom: 1.0;
+}
+
 /* Custom Base Styles */
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
   background-color: #1a0d40;
   color: #f3f4f6;
   font-family: 'Inter', sans-serif;
   position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body::before {

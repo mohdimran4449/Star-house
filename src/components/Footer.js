@@ -8,9 +8,9 @@ const Footer = () => {
   const isHomePage = location.pathname === '/';
   
   return (
-    <footer className="bg-[rgb(0_0_0_/_0.4)] text-white pt-16 pb-8 border-t border-white/10 shadow-lg relative overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+    <footer className="bg-[rgb(0_0_0_/_0.4)] text-white pt-16 pb-8 border-t border-white/10 shadow-lg relative overflow-hidden w-full">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-8 transform hover:scale-105 transition-transform duration-300">
@@ -25,7 +25,7 @@ const Footer = () => {
 
           
           {/* Quick Links */}
-          <div className="pl-8 lg:pl-16">
+          <div className="pl-0 sm:pl-4 md:pl-8 lg:pl-16">
             <h3 className="text-xl font-semibold mb-6 pb-2 border-b border-white/20 inline-block">Quick Links</h3>
             <ul className="space-y-3">
               {isHomePage ? (
@@ -159,9 +159,9 @@ const Footer = () => {
         </div>
         
         {/* Divider */}
-        <div className="border-t border-gray-700 pt-8 mt-4 relative">
+        <div className="border-t border-white/10 pt-6 md:pt-8">
           <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-          <p className="text-center text-gray-400 font-light tracking-wide">
+          <p className="text-center text-gray-400 text-xs sm:text-sm font-light tracking-wide">
             &copy; {currentYear} STAR HOUSE. All rights reserved. Premium leather products since 1985.
           </p>
         </div>
