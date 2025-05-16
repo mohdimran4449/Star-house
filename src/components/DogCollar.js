@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { PrevArrow, NextArrow } from './SliderArrows';
+import './sliderStyles.css';
 
 const DogCollar = () => {
   const galleryImages = [
@@ -12,6 +14,8 @@ const DogCollar = () => {
     '/images/DogCollar/DogCollar4.jpeg',
     '/images/DogCollar/DogCollar5.jpeg'
   ];
+
+  const sliderRef = useRef(null);
 
   const sliderSettings = {
     dots: true,
@@ -24,6 +28,8 @@ const DogCollar = () => {
     cssEase: "cubic-bezier(0.87, 0.03, 0.41, 0.9)",
     adaptiveHeight: true,
     lazyLoad: 'ondemand',
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
     responsive: [
       {
         breakpoint: 1280,

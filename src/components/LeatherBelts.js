@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { PrevArrow, NextArrow } from './SliderArrows';
+import './sliderStyles.css';
 
 const LeatherBelts = () => {
   const galleryImages = [
@@ -16,6 +18,8 @@ const LeatherBelts = () => {
     '/images/LeatherBelt/Belt8.jpeg'
   ];
 
+  const sliderRef = useRef(null);
+
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -27,6 +31,8 @@ const LeatherBelts = () => {
     cssEase: "cubic-bezier(0.87, 0.03, 0.41, 0.9)",
     adaptiveHeight: true,
     lazyLoad: 'ondemand',
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
     responsive: [
       {
         breakpoint: 1280,

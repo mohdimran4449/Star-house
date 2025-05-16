@@ -1,0 +1,85 @@
+/* Custom Slider Styles */
+.custom-arrow {
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.custom-arrow:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  background: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Responsive styles for arrows */
+@media (max-width: 768px) {
+  .custom-arrow {
+    width: 35px !important;
+    height: 35px !important;
+  }
+  
+  .prev-arrow {
+    left: 5px !important;
+  }
+  
+  .next-arrow {
+    right: 5px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-arrow {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  
+  .prev-arrow {
+    left: 2px !important;
+  }
+  
+  .next-arrow {
+    right: 2px !important;
+  }
+  
+  .custom-arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Slider dots styling */
+.slick-dots {
+  bottom: -40px;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  opacity: 0.5;
+}
+
+.slick-dots li.slick-active button:before {
+  color: white;
+  opacity: 1;
+}
+
+/* Slide styling */
+.slick-slide {
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.slick-slide img {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.slick-slide:hover img {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Active slide styling */
+.slick-current img {
+  transform: scale(1.02);
+}

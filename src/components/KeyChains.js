@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { PrevArrow, NextArrow } from './SliderArrows';
+import './sliderStyles.css';
 
 const KeyChains = () => {
   const galleryImages = [
@@ -13,6 +15,8 @@ const KeyChains = () => {
     '/images/KeyChains/KeyChain5.jpeg',
     '/images/KeyChains/KeyChain6.jpeg'
   ];
+
+  const sliderRef = useRef(null);
 
   const sliderSettings = {
     dots: true,
@@ -25,6 +29,8 @@ const KeyChains = () => {
     cssEase: "cubic-bezier(0.87, 0.03, 0.41, 0.9)",
     adaptiveHeight: true,
     lazyLoad: 'ondemand',
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
     responsive: [
       {
         breakpoint: 1280,
