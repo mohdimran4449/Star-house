@@ -7,11 +7,15 @@ const About = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12">
           {/* Image column */}
-          <div className="w-full md:w-1/2 h-96 bg-purple-900/20 relative overflow-hidden rounded-sm">
-            <div className="absolute inset-0 leather-texture opacity-60"></div>
+          <div className="w-full md:w-1/2 h-96 relative overflow-hidden rounded-sm">
+            <div 
+              className="absolute inset-0 bg-cover bg-center" 
+              style={{ backgroundImage: 'url("/images/About.png")' }}
+            ></div>
+            <div className="absolute inset-0 bg-black/40"></div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-3/4 h-3/4 border-2 border-purple-500/40 flex items-center justify-center">
-                <h3 className="text-3xl font-serif text-purple-100">Est. 1985</h3>
+              <div className="w-3/4 h-3/4 border-2 border-white/40 flex items-center justify-center backdrop-blur-sm bg-black/20">
+                <h3 className="text-4xl font-serif text-white font-bold drop-shadow-lg">Est. 1985</h3>
               </div>
             </div>
           </div>
