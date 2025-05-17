@@ -6,22 +6,9 @@ export const PrevArrow = (props) => {
   return (
     <div
       className={`${className} custom-arrow prev-arrow z-10`}
-      style={{
-        ...style,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        background: 'rgba(0, 0, 0, 0.5)',
-        borderRadius: '50%',
-        width: '40px',
-        height: '40px',
-        left: '10px',
-        zIndex: 10,
-        transition: 'all 0.3s ease',
-        cursor: 'pointer',
-        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)'
-      }}
+      style={style}
       onClick={onClick}
+      aria-label="Previous slide"
     >
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
@@ -46,22 +33,9 @@ export const NextArrow = (props) => {
   return (
     <div
       className={`${className} custom-arrow next-arrow z-10`}
-      style={{
-        ...style,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        background: 'rgba(0, 0, 0, 0.5)',
-        borderRadius: '50%',
-        width: '40px',
-        height: '40px',
-        right: '10px',
-        zIndex: 10,
-        transition: 'all 0.3s ease',
-        cursor: 'pointer',
-        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)'
-      }}
+      style={style}
       onClick={onClick}
+      aria-label="Next slide"
     >
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
