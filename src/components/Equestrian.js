@@ -68,9 +68,7 @@ const Equestrian = () => {
     cssEase: "cubic-bezier(0.87, 0.03, 0.41, 0.9)",
     adaptiveHeight: true,
     lazyLoad: 'ondemand',
-    arrows: false, // Disable default arrows
-    prevArrow: <PrevArrow />,
-    nextArrow: <NextArrow />,
+    arrows: true,
     responsive: [
       {
         breakpoint: 1280,
