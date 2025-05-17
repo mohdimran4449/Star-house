@@ -2,11 +2,10 @@
   "name": "star-house",
   "version": "1.0.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "/",
   "dependencies": {
     "autoprefixer": "^10.4.14",
     "framer-motion": "^12.11.3",
-    "gh-pages": "^6.3.0",
     "postcss": "^8.4.23",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -24,10 +23,8 @@
     "local-build": "./local-build.sh",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "vercel-build": "node vercel-build.js",
-    "deploy-vercel": "vercel --prod"
+    "deploy": "vercel --prod"
   },
   "eslintConfig": {
     "extends": [
