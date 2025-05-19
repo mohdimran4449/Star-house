@@ -13,11 +13,6 @@ const About = () => {
               style={{ backgroundImage: 'url("/images/About.png")' }}
             ></div>
             <div className="absolute inset-0 bg-black/40"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-3/4 h-3/4 border-2 border-white/40 flex items-center justify-center backdrop-blur-sm bg-black/20">
-                <h3 className="text-4xl font-serif text-white font-bold drop-shadow-lg">Est. 1985</h3>
-              </div>
-            </div>
           </div>
           
           {/* Content column */}
@@ -27,7 +22,7 @@ const About = () => {
             </h2>
             
             <p className="text-lg mb-6 leading-relaxed">
-              STAR HOUSE is a premier manufacturer and exporter of fine leather products, dedicated to crafting excellence since 1985. Our commitment to quality and craftsmanship has established us as a trusted name in the leather industry worldwide.
+              STAR HOUSE is a premier manufacturer and exporter of fine leather products, dedicated to crafting excellence since 1995. Our commitment to quality and craftsmanship has established us as a trusted name in the leather industry worldwide.
             </p>
             
             <p className="text-lg mb-6 leading-relaxed">
