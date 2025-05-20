@@ -5,14 +5,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { PrevArrow, NextArrow } from './SliderArrows';
 import './sliderStyles.css';
+import { getImagePath } from '../utils/imagePath';
 
 const DogCollar = () => {
   const galleryImages = [
-    '/images/DogCollar/DogCollar1.jpeg',
-    '/images/DogCollar/DogCollar2.jpeg',
-    '/images/DogCollar/DogCollar3.jpeg',
-    '/images/DogCollar/DogCollar4.jpeg',
-    '/images/DogCollar/DogCollar5.jpeg'
+    `${process.env.PUBLIC_URL}/images/DogCollar/DogCollar1.jpeg`,
+    `${process.env.PUBLIC_URL}/images/DogCollar/DogCollar2.jpeg`,
+    `${process.env.PUBLIC_URL}/images/DogCollar/DogCollar3.jpeg`,
+    `${process.env.PUBLIC_URL}/images/DogCollar/DogCollar4.jpeg`,
+    `${process.env.PUBLIC_URL}/images/DogCollar/DogCollar5.jpeg`
   ];
 
   const sliderRef = useRef(null);
@@ -93,7 +94,7 @@ const DogCollar = () => {
           className="w-full h-full"
         >
           <img 
-            src="/images/DogCollar/DogCollarHome.jpeg" 
+            src={`${process.env.PUBLIC_URL}/images/DogCollar/DogCollarHome.jpeg`} 
             alt="Dog Collar Collection" 
             className="w-full h-full object-cover"
           />

@@ -5,15 +5,16 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { PrevArrow, NextArrow } from './SliderArrows';
 import './sliderStyles.css';
+import { getImagePath } from '../utils/imagePath';
 
 const KeyChains = () => {
   const galleryImages = [
-    '/images/KeyChains/KeyChain1.jpeg',
-    '/images/KeyChains/KeyChain2.jpeg',
-    '/images/KeyChains/KeyChain3.jpeg',
-    '/images/KeyChains/KeyChain4.jpeg',
-    '/images/KeyChains/KeyChain5.jpeg',
-    '/images/KeyChains/KeyChain6.jpeg'
+    `${process.env.PUBLIC_URL}/images/KeyChains/KeyChain1.jpeg`,
+    `${process.env.PUBLIC_URL}/images/KeyChains/KeyChain2.jpeg`,
+    `${process.env.PUBLIC_URL}/images/KeyChains/KeyChain3.jpeg`,
+    `${process.env.PUBLIC_URL}/images/KeyChains/KeyChain4.jpeg`,
+    `${process.env.PUBLIC_URL}/images/KeyChains/KeyChain5.jpeg`,
+    `${process.env.PUBLIC_URL}/images/KeyChains/KeyChain6.jpeg`
   ];
 
   const sliderRef = useRef(null);
@@ -94,7 +95,7 @@ const KeyChains = () => {
           className="w-full h-full"
         >
           <img 
-            src="/images/KeyChains/KeyChainsHome.jpeg" 
+            src={`${process.env.PUBLIC_URL}/images/KeyChains/KeyChainsHome.jpeg`} 
             alt="Key Chains Collection" 
             className="w-full h-full object-cover"
           />

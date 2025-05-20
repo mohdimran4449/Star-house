@@ -1,4 +1,5 @@
 import React from 'react';
+import { getImagePath } from '../utils/imagePath';
 
 const About = () => {
   return (
@@ -10,7 +11,7 @@ const About = () => {
           <div className="w-full md:w-1/2 h-96 relative overflow-hidden rounded-sm">
             <div 
               className="absolute inset-0 bg-cover bg-center" 
-              style={{ backgroundImage: 'url("/images/About.png")' }}
+              style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/About.png)` }}
             ></div>
             <div className="absolute inset-0 bg-black/40"></div>
           </div>

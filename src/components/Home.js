@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { getImagePath } from '../utils/imagePath';
 
 const Home = () => {
   return (
@@ -21,7 +22,7 @@ const Home = () => {
         animate={{ scale: 1 }}
         transition={{ duration: 2 }}
       >
-        <img src="/images/Home.png" alt="Leather background" className="w-full h-full object-cover" />
+        <img src={`${process.env.PUBLIC_URL}/images/Home.png`} alt="Leather background" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-[#1a0d40]/60"></div>
       </motion.div>
       
