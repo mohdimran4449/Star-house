@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: star-house
+    env: node
+    plan: free
+    startCommand: node server.js
+    buildCommand: npm install
