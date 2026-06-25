@@ -3,8 +3,8 @@ const http = require("http");
 const path = require("path");
 
 const root = __dirname;
-const host = "localhost";
-const port = Number(process.env.PORT) || 5173;
+const host = "0.0.0.0";
+const port = Number(process.env.PORT) || 10000;
 
 const mimeTypes = {
   ".avif": "image/avif",
