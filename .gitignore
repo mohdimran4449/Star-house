@@ -31,7 +31,7 @@ pids
 *.seed
 *.pid.lock
 
-# Coverage directory used by tools like istanbul
+# Coverage
 coverage/
 .lcov/
 
@@ -39,51 +39,9 @@ coverage/
 dist/
 build/
 
-# Misc
+# Temporary files
 *.tmp
 *.bak
-_.tmp
-*.swp
-*.swo
-*~
-
-# IDE files
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
-
-# Assets that might be large
-assets/
-images/
-
-# Documentation
-
-# Environment variables
-.env
-
-# Logs
-logs
-*.log
-
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Coverage directory used by tools like istanbul
-coverage/
-.lcov/
-
-# Build outputs
-dist/
-build/
-
-# Misc
-*.tmp
-*.bak
-_.tmp
 *.swp
 *.swo
 *~
