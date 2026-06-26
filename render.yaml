@@ -5,3 +5,8 @@ services:
     plan: free
     startCommand: node server.js
     buildCommand: npm install
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: FORMSPREE_ENDPOINT
+        sync: false

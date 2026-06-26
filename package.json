@@ -4,6 +4,8 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
+    "build": "npm run check",
+    "check": "node scripts/check-site.js",
     "start": "node server.js"
   }
 }

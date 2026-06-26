@@ -126,7 +126,7 @@ if (!app) {
   throw new Error('Missing <main id="app"></main> element.');
 }
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const CONTACT_ENDPOINT = "/api/contact";
 
 let routeLock = false;
 
@@ -585,13 +585,15 @@ document.addEventListener("submit", async event => {
 
   try {
     const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
 
-    const response = await fetch(FORMSPREE_ENDPOINT, {
+    const response = await fetch(CONTACT_ENDPOINT, {
       method: "POST",
       headers: {
-        Accept: "application/json"
+        Accept: "application/json",
+        "Content-Type": "application/json"
       },
-      body: formData
+      body: JSON.stringify(payload)
     });
 
     const result = await response.json().catch(() => ({}));

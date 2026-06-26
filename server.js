@@ -1,9 +1,10 @@
 const fs = require("fs");
 const http = require("http");
 const path = require("path");
+const { handleContactRequest } = require("./lib/contact");
 
 const root = __dirname;
-const host = "0.0.0.0";
+const host = process.env.HOST || "127.0.0.1";
 const port = Number(process.env.PORT) || 10000;
 
 const mimeTypes = {
@@ -46,6 +47,13 @@ function serveFile(res, filePath, statusCode = 200) {
 }
 
 const server = http.createServer((req, res) => {
+  const urlPath = (req.url || "/").split("?")[0];
+
+  if (urlPath === "/api/contact") {
+    handleContactRequest(req, res);
+    return;
+  }
+
   if (!["GET", "HEAD"].includes(req.method)) {
     res.writeHead(405, { "Content-Type": "text/plain; charset=utf-8" });
     res.end("Method not allowed");
@@ -72,4 +80,9 @@ const server = http.createServer((req, res) => {
 
 server.listen(port, host, () => {
   console.log(`STAR HOUSE website running at http://${host}:${port}`);
+});
+
+server.on("error", error => {
+  console.error("Failed to start STAR HOUSE website:", error.message);
+  process.exit(1);
 });
