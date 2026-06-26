@@ -4,11 +4,11 @@ Static website for STAR HOUSE, ready to deploy on Vercel.
 
 ## Project structure
 
-- `index.html` - site shell and SEO metadata.
-- `assets/css/site.css` - site styling.
-- `assets/js/site.js` - client-side page rendering and routing.
-- `images/` - product and page images.
-- `PHOTO-2025-05-13-16-20-20.jpg` - brand logo used by the header/footer.
+- `public/index.html` - site shell and SEO metadata.
+- `public/assets/css/site.css` - site styling.
+- `public/assets/js/site.js` - client-side page rendering and routing.
+- `public/images/` - product and page images.
+- `public/PHOTO-2025-05-13-16-20-20.jpg` - brand logo used by the header/footer.
 - `vercel.json` - Vercel static hosting config with SPA route rewrites.
 - `.vercelignore` - excludes local/editor files from Vercel uploads.
 - `api/contact.js` - Vercel serverless contact endpoint.
@@ -22,7 +22,7 @@ Use these settings in Vercel:
 
 - Framework Preset: `Other`
 - Build Command: `npm run build`
-- Output Directory: leave empty
+- Output Directory: `public`
 - Install Command: `npm install`
 
 The `vercel.json` file rewrites product/contact routes back to `index.html`, so direct visits to paths like `/contact` and `/equestrian` will work in production.

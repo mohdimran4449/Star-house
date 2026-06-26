@@ -2,10 +2,11 @@ const fs = require("fs");
 const path = require("path");
 
 const root = path.resolve(__dirname, "..");
+const publicRoot = path.join(root, "public");
 const filesToScan = [
-  "index.html",
-  "assets/css/site.css",
-  "assets/js/site.js",
+  "public/index.html",
+  "public/assets/css/site.css",
+  "public/assets/js/site.js",
   "server.js",
   "api/contact.js",
   "lib/contact.js"
@@ -22,6 +23,7 @@ const expectedRoutes = [
   "/social-responsibility",
   "/contact"
 ];
+const allowedExternalSchemes = ["http:", "https:", "mailto:", "tel:"];
 
 const missing = [];
 
@@ -32,7 +34,7 @@ for (const relativeFile of filesToScan) {
 
   for (const match of matches) {
     const assetPath = decodeURI(match[1]);
-    const absoluteAssetPath = path.join(root, assetPath);
+    const absoluteAssetPath = path.join(publicRoot, assetPath);
 
     if (!fs.existsSync(absoluteAssetPath)) {
       missing.push(`${relativeFile} -> ${assetPath}`);
@@ -57,15 +59,51 @@ if (!apiRouteIsProtected) {
   missing.push("vercel.json -> /api routes must be listed before the SPA fallback rewrite");
 }
 
-const siteScript = fs.readFileSync(path.join(root, "assets/js/site.js"), "utf8");
+const siteScript = fs.readFileSync(path.join(publicRoot, "assets/js/site.js"), "utf8");
+const indexHtml = fs.readFileSync(path.join(publicRoot, "index.html"), "utf8");
+
 for (const route of expectedRoutes) {
   if (route !== "/" && !siteScript.includes(route.replace(/^\//, ""))) {
-    missing.push(`assets/js/site.js -> missing expected route ${route}`);
+    missing.push(`public/assets/js/site.js -> missing expected route ${route}`);
   }
 }
 
 if (!siteScript.includes('CONTACT_ENDPOINT = "/api/contact"')) {
-  missing.push("assets/js/site.js -> contact form must post to /api/contact");
+  missing.push("public/assets/js/site.js -> contact form must post to /api/contact");
+}
+
+const knownRoutes = new Set(expectedRoutes);
+const localLinks = [
+  ...indexHtml.matchAll(/\bhref=["']([^"']+)["']/g),
+  ...siteScript.matchAll(/\bhref=["']([^"']+)["']/g)
+].map(match => match[1]);
+
+for (const link of localLinks) {
+  if (link === "#" || link.startsWith("#")) continue;
+  if (link.includes("${")) continue;
+
+  try {
+    const parsed = new URL(link, "https://star-house.in");
+
+    if (allowedExternalSchemes.includes(parsed.protocol) && parsed.origin !== "https://star-house.in") {
+      continue;
+    }
+
+    if (parsed.origin === "https://star-house.in") {
+      const route = parsed.pathname.replace(/\/$/, "") || "/";
+
+      if (
+        !route.startsWith("/assets/") &&
+        !route.startsWith("/images/") &&
+        route !== "/PHOTO-2025-05-13-16-20-20.jpg" &&
+        !knownRoutes.has(route)
+      ) {
+        missing.push(`internal link is not handled by router: ${link}`);
+      }
+    }
+  } catch (error) {
+    missing.push(`invalid link: ${link}`);
+  }
 }
 
 if (missing.length > 0) {
